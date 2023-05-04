@@ -9,5 +9,5 @@ abstract class InstagramPickerSpec extends ReactContextBaseJavaModule {
     super(context);
   }
 
-  public abstract void multiply(double a, double b, Promise promise);
+  public abstract void openPicker(Promise promise);
 }

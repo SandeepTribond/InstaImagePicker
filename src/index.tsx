@@ -24,6 +24,6 @@ const InstagramPicker = InstagramPickerModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return InstagramPicker.multiply(a, b);
+export function openPicker(): Promise<any> {
+  return InstagramPicker.openPicker();
 }

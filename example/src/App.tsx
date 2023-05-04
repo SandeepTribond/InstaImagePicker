@@ -1,18 +1,33 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-instagram-picker';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import { openPicker } from 'react-native-instagram-picker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState<any>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    openPicker().then(setResult);
   }, []);
+
+  React.useEffect(() => {
+    console.log("Here is the image list result",result);
+  }, [result]);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      {result && result.length>0 &&
+      <View>
+
+      {result.map((item:any) => (
+          <Image
+            source={{uri:'file://'+item.cutPath}}
+            style={{width:300,height:300,backgroundColor:'yellow'}}/>
+            ))}
+        
+        </View>
+      }
+
     </View>
   );
 }
